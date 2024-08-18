@@ -32,7 +32,7 @@ jobs:
       run: |
         ./gradlew releaseVersion --no-commit
         git push origin --tags
-        ./gradlew printChangeLog --file changelog.md
+        ./gradlew printChangeLog --file $(pwd)/changelog.md
         echo "RELEASE_VERSION=$(git tag --points-at HEAD)" >> $GITHUB_ENV
     - name: Build JAR
       run: ./gradlew build jar -x test
