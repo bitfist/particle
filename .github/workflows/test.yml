@@ -25,6 +25,8 @@ jobs:
         cache-read-only: false
     # Job
     - name: Test
+      env:
+        BROWSER_TEST_ENABLED: true
       run: |
         ./gradlew test jacocoTestReport
     - name: Generate JaCoCo Badge
