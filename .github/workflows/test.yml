@@ -29,17 +29,15 @@ jobs:
         ./gradlew test jacocoTestReport
     - name: Generate JaCoCo Badge
       uses: cicirello/jacoco-badge-generator@v2
-      env:
-        BADGES_FOLDER: .github/badges
       with:
         generate-branches-badge: true
         jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
     - name: Update badges (if changed)
       run: |
-        if [[ `git status $BADGES_FOLDER --porcelain` ]]; then
+        if [[ `git status --porcelain` ]]; then
           git config --global user.name 'github_actions'
           git config --global user.email '1898282+github-actions[bot]@users.noreply.github.com>'
-          git add $BADGES_FOLDER
+          git add -A
           git commit -m "update coverage badge"
           git push
         fi
