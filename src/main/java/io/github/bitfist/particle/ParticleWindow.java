@@ -54,14 +54,4 @@ public class ParticleWindow {
         return javaScriptFileProxyFactory.getProxy(type);
     }
 
-//    private void startEventLoop() {
-//        while (!shell.isDisposed()) {
-//            if (!display.readAndDispatch()) {
-//                display.sleep();
-//            }
-//        }
-//        display.dispose();
-//        System.exit(0);
-//    }
-
 }
