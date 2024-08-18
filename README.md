@@ -1,3 +1,6 @@
+![Coverage](.github/badges/jacoco.svg)
+![Branches](.github/badges/branches.svg)
+
 # Particle
 
 Particle is a Java alternative to [Electron](https://www.electronjs.org/). It is based on SWTs
