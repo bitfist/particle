@@ -112,4 +112,38 @@ public interface SomeJavaScript {
 
 #### Restrictions
 * JavaScript cannot return values; behind the scenes, `browser.execute` is used to execute the code, which only returns
-  `true` on successful execution, `false` otherwise 
+  `true` on successful execution, `false` otherwise
+
+--------------------------------------------------------------
+
+## Using the GitHub Package Registry
+
+GitHub requires authentication to use a project's package registry. The cleanest version is to set your GitHub user and
+an access token in your global Gradle properties file under `~/.gradle/gradle.properties`. This example assumes that
+GPR_USER (your GitHub username) and GPR_KEY (an access token) are set in the global properties file. 
+
+In case of a pipeline: `GITHUB_ACTOR` is a variable used in GitHub actions. Make sure to provide an access token through
+a secret in your pipeline.
+
+### Gradle Kotlin DSL
+
+```kotlin
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/bitfist/particle")
+        credentials {
+            username = project.findProperty("GPR_USER") as String? ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("GPR_KEY") as String? ?: System.getenv("GPR_KEY")
+        }
+    }
+}
+```
+### GitHub pipeline
+
+```yaml
+name: 'test'
+...
+env:
+  GPR_KEY: ${{ secrets.GPR_KEY }}
+```
