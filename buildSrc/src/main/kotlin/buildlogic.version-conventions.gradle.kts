@@ -10,7 +10,7 @@ semver {
     patchPattern = "\\A(fix|chore|docs|refactor|ci|build|test|deps)(?:\\([^()]+\\))?:"
 
     val server = System.getenv("GITHUB_SERVER_URL") ?: "https://github.com"
-    val repository = System.getenv("GITHUB_REPOSITORY") ?: "bitfist/os-conditions-spring-boot-starter"
+    val repository = System.getenv("GITHUB_REPOSITORY") ?: "bitfist/particle"
     val repositoryUrl = "$server/$repository"
 
     fun ChangeLogTextFormatter.appendChangeLongEntry() {
@@ -80,7 +80,7 @@ semver {
 }
 
 // look up git tag
-var gitTagVersion = "0.0.0"
+var gitTagVersion = "0.0.1"
 try {
     gitTagVersion = ByteArrayOutputStream().use { outputStream ->
         project.exec {
@@ -90,7 +90,7 @@ try {
         outputStream.toString().trim()
     }
 } catch (t: Throwable) {
-    gitTagVersion = "0.0.0"
+    gitTagVersion = "0.0.1"
     logger.warn("Warning: could not figure out version using git")
 }
 
