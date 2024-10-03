@@ -17,7 +17,7 @@
         <list>
           <option value=":test" />
           <option value="--tests" />
-          <option value="&quot;org.bitfist.particle.*&quot;" />
+          <option value="&quot;io.github.bitfist.particle.*&quot;" />
         </list>
       </option>
       <option name="vmOptions" />
