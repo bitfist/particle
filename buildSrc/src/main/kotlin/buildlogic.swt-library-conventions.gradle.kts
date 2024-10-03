@@ -4,6 +4,8 @@ plugins {
     id("buildlogic.java-library-conventions")
 }
 
+val libs = the<org.gradle.accessors.dm.LibrariesForLibs>()
+
 var windowsBuild = properties.containsKey("windowsBuild")
 var linuxBuild = properties.containsKey("linuxBuild")
 var macosBuild = properties.containsKey("macosBuild")
@@ -16,11 +18,11 @@ if (!windowsBuild && !linuxBuild && !macosBuild) {
 
 dependencies {
     if (windowsBuild) {
-        implementation("org.eclipse.platform:org.eclipse.swt.win32.win32.x86_64:3.126.0")
+        implementation(libs.swtWindows)
     } else if (macosBuild) {
-        implementation("org.eclipse.platform:org.eclipse.swt.cocoa.macosx.aarch64:3.126.0")
+        implementation(libs.swtMacos)
     } else if (linuxBuild) {
-        implementation("org.eclipse.platform:org.eclipse.swt.gtk.linux.x86_64:3.126.0")
+        implementation(libs.swtLinux)
     }
 }
 
