@@ -4,7 +4,7 @@ swt = "3.127.0"
 [libraries]
 jackson = { module = "com.fasterxml.jackson.core:jackson-databind", version = "2.18.0" }
 # Test
-junit = { module = "org.junit.jupiter:junit-jupiter", version = "5.11.2" }
+junit = { module = "org.junit.jupiter:junit-jupiter", version = "5.11.3" }
 mockito = { module = "org.mockito:mockito-core", version = "5.14.2" }
 # SWT
 swtLinux = { module = "org.eclipse.platform:org.eclipse.swt.gtk.linux.x86_64", version.ref = "swt" }
