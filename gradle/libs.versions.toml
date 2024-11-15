@@ -2,7 +2,7 @@
 swt = "3.127.0"
 
 [libraries]
-jackson = { module = "com.fasterxml.jackson.core:jackson-databind", version = "2.18.0" }
+jackson = { module = "com.fasterxml.jackson.core:jackson-databind", version = "2.18.1" }
 # Test
 junit = { module = "org.junit.jupiter:junit-jupiter", version = "5.11.3" }
 mockito = { module = "org.mockito:mockito-core", version = "5.14.2" }
