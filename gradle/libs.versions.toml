@@ -1,5 +1,5 @@
 [versions]
-swt = "3.127.0"
+swt = "3.128.0"
 
 [libraries]
 jackson = { module = "com.fasterxml.jackson.core:jackson-databind", version = "2.18.2" }
